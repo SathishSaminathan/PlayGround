@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { debounce } from "lodash";
 
 class App extends Component {
+
+  state={
+    Value:''
+  }
+
+  handleChange=debounce((text)=>{
+    console.log(text)
+  },2000)
   render() {
     return (
       <div className="App">
@@ -19,6 +28,7 @@ class App extends Component {
           >
             Learn React
           </a>
+          <input onChange={(e)=>this.handleChange(e.target.value)}/>
         </header>
       </div>
     );
